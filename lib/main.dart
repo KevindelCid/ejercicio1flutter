@@ -1,47 +1,52 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-    );
+        title: 'Material App',
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text('Material App Bar'),
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(children: <Widget>[
+              Row(
+                children: <Widget>[
+                  const Expanded(child: Text('Activar sonido')),
+                  Switch(
+                    value: true,
+                    onChanged: _chan,
+                  ),
+                ],
+              ),
+              const Divider(),
+              Row(
+                children: <Widget>[
+                  const Expanded(child: Text('Activar Camara')),
+                  Switch(
+                    value: true,
+                    onChanged: _chan,
+                  )
+                ],
+              ),
+              const Divider(),
+              Row(
+                children: <Widget>[
+                  const Expanded(child: Text('Activar modo Nopor')),
+                  Switch(
+                    value: true,
+                    onChanged: _chan,
+                  )
+                ],
+              ),
+            ]),
+          ),
+        ));
   }
-}
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(), //apBar me muestra lo que en web se conoce como navbar
-      body: const Center(
-        child:  Text(
-        'Mundo! Holis :D', // muestro texto parametro obligatorio de Text
-        style: TextStyle(
-          // estilos para el texto es opcional
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.blueAccent,
-        ),
-        
-      ), // puedo mostrar texto ...
-
-
-      )
-    
-    );
-  }
+  void _chan(bool value) {}
 }
