@@ -1,47 +1,32 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(), //apBar me muestra lo que en web se conoce como navbar
-      body: const Center(
-        child:  Text(
-        'Mundo! Holis :D', // muestro texto parametro obligatorio de Text
-        style: TextStyle(
-          // estilos para el texto es opcional
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.blueAccent,
+      title: 'Material App',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Uso del Column'),
         ),
-        
-      ), // puedo mostrar texto ...
-
-
-      )
-    
+        body: SizedBox(
+          width: double.infinity,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(color: Colors.green, height: 100, width: 100),
+                const Text(
+                    'Holi aqui pos estoy debajo de ese cuadro verde feo'),
+                Image.network(
+                    'https://c.tenor.com/2dPVmgfgjb0AAAAC/joker-tus-nalgas.gif',
+                    height: 250),
+                const Text('y aqui arriba pos hay algo que si me gustaaaaa')
+              ]),
+        ),
+      ),
     );
   }
 }
