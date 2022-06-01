@@ -1,9 +1,14 @@
+import 'package:ejemplo1/pages/my_homePage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    title: 'Navigation Basics',
+    home: MyApp(),
+  ));
 }
 
+<<<<<<< HEAD
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -40,3 +45,5 @@ class MyHomePage extends StatelessWidget {
         ));
   }
 }
+=======
+>>>>>>> 2780e9b278d102bd9e83a46eaf14cb668949d809
