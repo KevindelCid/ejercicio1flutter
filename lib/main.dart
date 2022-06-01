@@ -26,22 +26,17 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(), //apBar me muestra lo que en web se conoce como navbar
-      body: const Center(
-        child:  Text(
-        'Mundo! Holis :D', // muestro texto parametro obligatorio de Text
-        style: TextStyle(
-          // estilos para el texto es opcional
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.blueAccent,
-        ),
-        
-      ), // puedo mostrar texto ...
-
-
-      )
-    
-    );
+        appBar: AppBar(), //apBar me muestra lo que en web se conoce como navbar
+        body: const Center(
+          child: Text(
+            'Mundo! Holis :D', // muestro texto parametro obligatorio de Text
+            style: TextStyle(
+              // estilos para el texto es opcional
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.blueAccent,
+            ),
+          ), // puedo mostrar texto ...
+        ));
   }
 }
