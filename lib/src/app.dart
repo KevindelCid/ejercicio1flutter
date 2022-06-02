@@ -1,4 +1,7 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MyApp extends StatelessWidget {
   final _scaffKey = GlobalKey<ScaffoldState>();
@@ -10,8 +13,22 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         key: _scaffKey,
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 3, 36, 4),
-          title: const Text('Material App Bar'),
+          backgroundColor: const Color.fromARGB(0, 3, 36, 4),
+          title: Row(
+            children: <Widget>[
+              SvgPicture.asset(
+                'assets/kiwi.svg',
+                placeholderBuilder: (context) =>
+                    const CircularProgressIndicator(),
+                height: 40.0,
+              ),
+             const Padding(
+                padding:  EdgeInsets.all(10.0),
+                child:  Text('Lusyc'),
+              )
+            ],
+          ),
+          elevation: 0,
         ),
         body: const Center(
           child: Text('Hello World',
@@ -28,14 +45,22 @@ class MyApp extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           UserAccountsDrawerHeader(
-            decoration: const BoxDecoration(color:  Color.fromARGB(255, 3, 36, 4),),
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 3, 36, 4),
+            ),
             accountName: const Text('kevin'),
             accountEmail: const Text('kevin@gmail.com'),
-            currentAccountPicture: foto('https://i.imgur.com/BoN9kdC.png'),
+            currentAccountPicture:
+                foto_circular('https://i.imgur.com/BoN9kdC.png'),
             otherAccountsPictures: [
-              foto('https://i.imgur.com/BoN9kdC.png'),
+                SvgPicture.asset(
+                'assets/kiwi.svg',
+                placeholderBuilder: (context) =>
+                    const CircularProgressIndicator(),
+                height: 40.0,
+              ),
             ],
-            onDetailsPressed: (){},
+            onDetailsPressed: () {},
           ),
           ListTile(
             title: const Text('Inicio'),
@@ -47,23 +72,15 @@ class MyApp extends StatelessWidget {
     );
   }
 
-
-  Widget foto(url) {
-    return  Container(
-      width: 190.0,
-      height: 190.0,
-      decoration:  BoxDecoration(
-          shape: BoxShape.circle,
-          image:  DecorationImage(
-          fit: BoxFit.fill,
-          image:  NetworkImage(url)
-                 )
-));
-    }
-
-
-  void showHome(BuildContext context) {
-
-
+  Widget foto_circular(url) {
+    return Container(
+        width: 190.0,
+        height: 190.0,
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image:
+                DecorationImage(fit: BoxFit.fill, image: NetworkImage(url))));
   }
+
+  void showHome(BuildContext context) {}
 }
